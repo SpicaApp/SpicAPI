@@ -10,6 +10,13 @@ app.listen(8080, () => console.log("SpicAPI started and active..."));
 
 app.get("/", (req, res) => res.send("SpicAPI"));
 
+app.get("/privacy", (req, res) => {
+	res.status(200).json({
+		updated: 1596380401,
+		url: "https://spica.fliney.eu/privacy.md",
+	});
+});
+
 app.get("/apps/ios/version", (req, res) => {
 	res.status(200).json({
 		required: {
