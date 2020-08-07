@@ -13,7 +13,7 @@ app.get("/", (req, res) => res.send("SpicAPI"));
 app.get("/privacy", (req, res) => {
 	res.status(200).json({
 		updated: 1596380401,
-		url: "https://spica.fliney.eu/privacy.md",
+		url: "https://spica.li/privacy.md",
 	});
 });
 
@@ -26,6 +26,19 @@ app.get("/apps/ios/version", (req, res) => {
 		newest: {
 			version: "0.9.0",
 			build: 0,
+		},
+	});
+});
+
+app.get("/apps/android/version", (req, res) => {
+	res.status(200).json({
+		required: {
+			version: "1.0.0",
+			build: 1,
+		},
+		newest: {
+			version: "1.0.0",
+			build: 1,
 		},
 	});
 });
