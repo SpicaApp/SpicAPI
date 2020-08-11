@@ -1,6 +1,6 @@
 # SpicAPI
 
-The API for Spica ([https://api.spica.fliney.eu](https://api.spica.fliney.eu))
+The API for Spica ([https://api.spica.li](https://api.spica.li))
 
 ***WORK IN PROGRESS!***
 
