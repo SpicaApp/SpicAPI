@@ -1,12 +1,16 @@
 // Express
+require("dotenv").config();
 const express = require("express");
 const app = express();
+const db = require("./db");
 
 app.use(require("body-parser").json());
 app.use((err, req, res, next) =>
 	res.status(500).json({ err: "internalError" })
 );
-app.listen(8080, () => console.log("SpicAPI started and active..."));
+db.sync().then(() => {
+	app.listen(8080, () => console.log("SpicAPI started and active..."));
+});
 
 app.get("/", (req, res) => res.send("SpicAPI"));
 
@@ -16,6 +20,8 @@ app.get("/privacy", (req, res) => {
 		url: "https://spica.li/privacy.md",
 	});
 });
+app.post("/label", require("./api/label"));
+app.post("/createlabel", require("./api/label/create"));
 
 app.get("/apps/ios/version", (req, res) => {
 	res.status(200).json({
