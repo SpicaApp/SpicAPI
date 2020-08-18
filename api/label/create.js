@@ -2,6 +2,8 @@ const db = require("../../db");
 const uuid = require("uuid").v4;
 
 module.exports = async (req, res) => {
+	if (req.headers.authorization !== process.env.SECRET)
+		return res.status(401).json({error: "badAuthorization"});
 	if (
 		typeof req.body.allesapiName !== "string" ||
 		req.body.allesapiName.trim().length === 0 ||
